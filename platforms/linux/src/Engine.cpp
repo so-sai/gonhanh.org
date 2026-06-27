@@ -98,12 +98,7 @@ void GoNhanhEngine::keyEvent(const fcitx::InputMethodEntry& entry,
         return;
     }
 
-    // Check for word break keys (space, punctuation, arrows)
     uint32_t keysym = key.sym();
-    if (KeycodeMap::isBreakKey(keysym)) {
-        RustBridge::clear();
-        return;  // Let the key pass through
-    }
 
     // Skip if Ctrl or Alt is held (shortcuts)
     auto states = key.states();
